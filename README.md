@@ -70,12 +70,12 @@ This will create a group called yourUSername with the same GID and UID as the us
 yourUsername on login <br />
 
 Next you have to remove the default alarm user by security reasons. But first you cannot delete it because your ssh is using it curently so 
-you have to reconnect with your new user created. <br />
+you have to reconnect with your new user created.<br /><br />
 `sudo ssh yourUsername@your-raspbery-ip`<br />
 `# userdel -r alarm` <br />
 The `-r` option specifies that the user's home directory and mail spool should also be deleted <br />
 
-__User Database__Local user information is stored in the plain-text `/etc/passwd` file.Each of its lines represents a user acount and has 
+__User Database__: Local user information is stored in the plain-text `/etc/passwd` file.Each of its lines represents a user acount and has 
 seven fields delimited by a colo `:`
 
 #### 7.Add a User to sudo
