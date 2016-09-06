@@ -32,3 +32,5 @@ Tho Q Luong, http://github.com/thoqbk/pi-oi
 ```
 
 Another  way to find out the ip is trough your router settings panel. Login to your router by accesing his ip lan adress. Usualy is on the back of you router. In the setting panel you will see device connected and the hostname of your pi which will be alarmpi and the ip.
+
+dd
