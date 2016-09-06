@@ -112,7 +112,7 @@ rm -rf yar
 #### 8.Set hostanme and root password
 
 First verify your hostname by: `$ hostname` <br />
-Then add `sudo hostname set-hostname NewHostnameHere' <br />
+Then add `sudo hostname set-hostname NewHostnameHere` <br />
 
 Add a new root password by typing the following command: <br />
 ```
