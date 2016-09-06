@@ -39,8 +39,18 @@ Once connceted you need root privileges. Type `su` and enter the `root` password
 
 #### 4. WIFI activation 
 The Raspberry Pi 3 has a build in  wirelless module. You can activate it by accesing a default command line tool called __wifi-menu__. Type 
-`# wifi-menu -o`. You will a interface prompt to and you need to enter the password for your netword SSID. After that wait a few seconds. 
+`# wifi-menu -o`. You will see a interface prompt and you need to enter the password for your netword SSID. After that wait a few seconds. 
 The wifi-menu utility has created a new profile for your WIFI Link. It is called wlan0-your-SSID 
 
 Start the wifi by typing `netctl start wlan0-you-SSID`. Enable it so after each reboot it will be activate by typing `netctl enable 
 wlan0-your-SSID` 
+
+To see the profiles of your wifi type `netclt list`
+
+#### 5. System update and syncronization
+
+Type: 
+   `# pacman -Syy`
+   `# pacman -Syu`
+
+
