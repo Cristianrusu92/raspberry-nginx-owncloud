@@ -96,7 +96,7 @@ SAVE and EXIT
 3`sudo pacman -S base-devel` <br />
 4`cd ~/ && mkdir yar` <br />
 5`wget https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz` <br />
-6`tar -xzvf package-query.tar.gz <br />
+6`tar -xzvf package-query.tar.gz` <br />
 7`cd package-query` <br />
 8`makepkg -si` <br />
 9`cd ..` <br />
