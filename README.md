@@ -86,3 +86,25 @@ Add the line unde the `root ALL=(ALL) ALL`  <br />
 `yourUsername ALL=(ALL) ALL` <br />
 
 SAVE and EXIT 
+
+
+#### 8.Intall WGET & GIT & Yaourt
+
+<br />
+1`sudo pacman -S wget` <br />
+2`sudo pacman -S git` <br />
+3`sudo pacman -S base-devel` <br />
+4`cd ~/ && mkdir yar` <br />
+5`wget https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz' <br />
+6`tar -xzvf package-query.tar.gz <br />
+7`cd package-query` <br />
+8`makepkg -si` <br />
+9`cd ..` <br />
+10`wget https://aur.archlinux.org/cgit/aur.git/snapshot/yaourt.tar.gz` <br />
+11`tar -xzvf yaourt.tar.gz` <br />
+12`cd yaourt` <br />
+13`makepkg -si` <br />
+14`cd ../..` <br />
+15`rm -rf yar` <br />
+
+   
