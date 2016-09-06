@@ -37,7 +37,7 @@ Connect to ssh by typing `sudo ssh@your-raspberry-ip` and enter the `alarm` pass
 Once connceted you need root privileges. Type `su` and enter the `root` password 
 
 
-#### 4. WIFI activation 
+#### 4.WIFI activation 
 The Raspberry Pi 3 has a build in  wirelless module. You can activate it by accesing a default command line tool called __wifi-menu__. Type 
 `# wifi-menu -o`. You will see a interface prompt and you need to enter the password for your netword SSID. After that wait a few seconds. 
 The wifi-menu utility has created a new profile for your WIFI Link. It is called wlan0-your-SSID 
@@ -48,9 +48,23 @@ wlan0-your-SSID`
 To see the profiles of your wifi type `netclt list`
 
 #### 5. System update and syncronization
-
-Type: 
+ 
    `# pacman -Syy` <br />
-   `# pacman -Syu`
+   `# pacman -Syu` <br />
+
+#### 5.Install sudo 
+sudo allows a system administrator to delegate authority to give certain usersâor groups of users the ability to run commands as 
+root or another user while providing an audit trail of the commands and their arguments.
+<br />
+`# pacman -S sudo` <br /> 
 
 
+#### 6.Add a New User
+ [Arch Documentation](https://wiki.archlinux.org/index.php/users_and_groups) offers useful information regarding user management.
+To add a user type : <br />
+  
+   `# useradd -m -G wheel -s /bin/bash yourUsername` <br />
+   `# passwd yourUsername` <br />
+
+This will create a group called yourUSername with the same GID and UID as the use yourUsername and make this the default group for 
+yourUsername on login 
