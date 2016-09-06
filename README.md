@@ -50,7 +50,7 @@ To see the profiles of your wifi type `netclt list`
 #### 5. System update and syncronization
 
 Type: 
-   `# pacman -Syy` \n
+   `# pacman -Syy`__
    `# pacman -Syu`
 
 
