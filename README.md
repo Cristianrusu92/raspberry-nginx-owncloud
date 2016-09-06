@@ -34,7 +34,7 @@ Tho Q Luong, http://github.com/thoqbk/pi-oi
 Another  way to find out the ip is trough your router settings panel. Login to your router by accesing his ip lan adress. Usualy is on the back of you router. In the setting panel you will see device connected and the hostname of your pi which will be alarmpi and the ip.
 
 Connect to ssh by typing `sudo ssh@your-raspberry-ip` and enter the `alarm` password.
-Once connceted you need root privileges. Type `su` and enter the `root` password 
+Once conncted you need root privileges. Type `su` and enter the `root` password 
 
 
 #### 4.WIFI activation 
@@ -122,5 +122,17 @@ Add a new root password by typing the following command: <br />
 
 
 
+#### 9.Change local time and generate new keyboard layout
 
+
+`sudo nano etc/locale.gen`  Remove the `;` from `en_US.UTF-8 UTF-8` <br /
+
+Save and exit and add `locale-gen`  <br />
+
+````
+  ls -l /etc/localtime
+  rm /etc/localtime
+  ln -s /usr/share/zoneinfo/Europe/Bucharest /etc/localtime
+
+```
    
