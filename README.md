@@ -53,13 +53,13 @@ To see the profiles of your wifi type `netclt list`
    `# pacman -Syu` <br />
 
 #### 5.Install sudo 
-sudo allows a system administrator to delegate authority to give certain usersâor groups of users the ability to run commands as 
+sudo allows a system administrator to delegate authority to give certain users or groups of users the ability to run commands as 
 root or another user while providing an audit trail of the commands and their arguments.
 <br />
 `# pacman -S sudo` <br /> 
 
 
-#### 6.Add a New User
+#### 6.Add User & User deletion
  [Arch Documentation](https://wiki.archlinux.org/index.php/users_and_groups) offers useful information regarding user management.
 To add a user type : <br />
   
@@ -67,4 +67,22 @@ To add a user type : <br />
    `# passwd yourUsername` <br />
 
 This will create a group called yourUSername with the same GID and UID as the use yourUsername and make this the default group for 
-yourUsername on login 
+yourUsername on login <br />
+
+Next you have to remove the default alarm user by security reasons. But first you cannot delete it because your ssh is using it curently so 
+you have to reconnect with your new user created. <br />
+`sudo ssh yourUsername@your-raspbery-ip`<br />
+`# userdel -r alarm` <br />
+The `-r` option specifies that the user's home directory and mail spool should also be deleted <br />
+
+__User Database__Local user information is stored in the plain-text `/etc/passwd` file.Each of its lines represents a user acount and has 
+seven fields delimited by a colo `:`
+
+#### 7.Add a User to sudo
+
+`# nano etc/sudoers` <br />
+Add the line unde the `root ALL=(ALL) ALL`  <br />
+
+`yourUsername ALL=(ALL) ALL` <br />
+
+SAVE and EXIT 
