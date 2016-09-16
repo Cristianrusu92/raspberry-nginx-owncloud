@@ -136,3 +136,47 @@ Save and exit and add `locale-gen`  <br />
 
 ```
    
+#### 10. Use the nginx.sh script to automate the owncloud configuration
+
+`cd ~`
+
+Clone the git repository by typing `git clone https://github.com/cristiangabor/OwncloudConfig-Raspberry-Arch.git`. Then enter the directory cloned: `cd ~/OwncloudConfig-Raspberry-Arch/`
+
+
+I worte a bash script that autmoates the installation and configuration of owncloud/nginx for your raspberry pi. Access the nginx.sh script from your git cloned repository and change the permissions in oreder to be able to execute it. To do that type:
+
+`sudo chmod 755 nginx.sh`
+
+After that you can execute the script by typing: `sudo ./nginx.sh` . Remember to execute the script with `sudo`. The script will update the system, install nginx, install mariadb and create a database, install the owncloud and php-fpm module. 
+
+You will be asked to enter a new root password when the database will be created. I recomand you to enter a new one. You could also press enter to skip this but I recommend you to add a new one and diffrent from the owncloud database password to increase the security. 
+
+After the script is runned you need to modify the `server_name` from /etc/nginx/conf/owncloud.conf. You need to substitute with your own DNS server name. If do not have owne, I recommend you to access [no-ip site](http://www.noip.com/) and make one. Replace the:
+
+```
+ server {
+
+ 
+ listen   80;
+ server_name localhost    #with/  myowncloud.no-ip.com;
+ 
+  .......
+}
+ 
+  server {
+  listen 443 ssl;
+  server_name localhost  #with  myowncloud.no-ip.com;
+
+  .....
+ }
+
+ ```
+
+The final step is to set a port forwarding on your router to make the owncloud accessible on the 443 external port. This is a really important step. Skipping this step can make the server owncloud not to work, so pay atention! 
+
+Enter the router configuration panel by accessing his own ip: Usualy the ip is writen on the back of the router. Like `192.168.0.1` . Access the advacend section and there you will see a section: Port Forwarding. This [tutorial](https://pimylifeup.com/raspberry-pi-port-forwarding/) is really useful to see how it's done. The internal port needs to be `443` and also the external port needs to be `443`. You may have a problem after setting this with http redirect. You only need to enter on the browser link section `https://followed-by-your-onwcloud.adress.com'. After this the browser will remember your adress, so there is no need to type it again.
+
+That's it with this step. 
+
+
+
