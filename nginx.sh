@@ -273,6 +273,9 @@ location_nginx=$(pwd)
 echo "Current directory $location_nginx"
 cp "$location_nginx/owncloud.conf" /etc/nginx/conf
 
+echo "Copying the nginx.conf to the /etc/nginx/ directory..."
+
+cp "$location_nginx/nginx.conf" /etc/nginx/conf
 
 
 systemctl restart nginx
@@ -287,4 +290,7 @@ echo "Also run the other script to set up the automate TSL/SSL certificate creat
 
 echo -e "${Gre}Ready"
 tput sgr0
+
+exit
+
 
