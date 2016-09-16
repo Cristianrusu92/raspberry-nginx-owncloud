@@ -253,6 +253,11 @@ tput sgr0
 echo " "
 echo " "
 
+sed -i "s/;extension=gd.so/extension=gd.so/" /etc/php/php.ini
+sed -i "s/;extension=mysqli.so/extension=mysqli.so/" /etc/php/php.ini
+sed -i "s/;extension=pdo_mysql.so/extension=pdo_mysql.so/" /etc/php/php.ini
+
+
 filestring="/etc/nginx/conf"
 
 if [ -d "$filestring" ]
@@ -269,9 +274,6 @@ echo "Current directory $location_nginx"
 cp "$location_nginx/owncloud.conf" /etc/nginx/conf
 
 
-sed -i "869s/;extension=gd.so/extension=gd.so/" /etc/php/php.ini
-sed -i "877s/;extension=mysqli.so/extension=mysqli.so/" /etc/php/php.ini
-sed -i "881s/;extension=pdo_mysql.so/extension=pdo_mysql.so/" /etc/php/php.ini
 
 systemctl restart nginx
 systemctl restart php-fpm
