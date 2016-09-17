@@ -187,7 +187,7 @@ hard drive.
 To see your hard drive id: `ls -l /dev/disk/by-uuid` .  You will see a short key for fat32 partions like: ` 503A-ABB5`. Copy the key. 
 
 Get the id of `http` user. Remember that we gaved the ownership of `/usr/share/webapps/owncloud/` (where the owncloud files are) to `http` 
-user. 
+user. <br />
 `id -g http` <br />
 `id -u http` <br />
 
