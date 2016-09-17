@@ -184,15 +184,14 @@ That's it with this step.
 To expand the capabilities of your owncloud server you can add a external hardrive. For this you need first identificate the unique id of your 
 hard drive. 
 
-To see your hard drive id: `ls -l /dev/disk/by-uuid' . You will see a short key for fat32 partions like: ` 503A-ABB5`. Copy the key. 
+To see your hard drive id: `ls -l /dev/disk/by-uuid` .  You will see a short key for fat32 partions like: ` 503A-ABB5`. Copy the key. 
 
-Get the id of `http` user. Remember that we gaved the ownership of '/usr/share/webapps/owncloud/`(where the owncloud files are) to `http` 
+Get the id of `http` user. Remember that we gaved the ownership of `/usr/share/webapps/owncloud/` (where the owncloud files are) to `http` 
 user. 
 `id -g http` <br />
 `id -u http` <br />
 
-Add this line at the end of the /etc/fstab file. Remember to substitue the `UUID=`,`uid` and `gid` with your hard drive id, http user id 
-and http group id.
+Add this line at the end of the /etc/fstab file. Remember to substitue the `UUID=`,`uid` and `gid` with your hard drive id, http user id and http group id.
 
 `UUID=503A-ABB5 /media/owncloud vfat nofail,x-systemd.device-timeout=1,uid=33,gid=33,umask=0027,dmask=0027  0 0`
 
