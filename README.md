@@ -201,3 +201,41 @@ Restart the raspberry. `sudo reboot`
 Activate the owncloud external storage in the application menu. Add your hard drive to the Local directory and specify the path where is 
 mounted `/media/owncloud`. Here is a useful [video](https://www.youtube.com/watch?v=uezzFDRnoPY).
    
+
+#### 12.Obtain a Free Let’s Encrypt TLS/SSL Certificate
+
+SSL Certificates are small data files that digitally bind a cryptographic key to an organization’s details. When installed on a web server, it activates the padlock and the https protocol and allows secure connections from a web server to a browser. Typically, SSL is used to secure credit card transactions, data transfer and logins, and more recently is becoming the norm when securing browsing of social media sites.
+
+
+To obatin this you need to install the certbot program from arch repository
+
+`sudo pacman -S certbot` <br /> 
+
+Run the command to obtain the certificate
+
+`sudo certbot certonly --webroot --email <your-email-address> -d www.example.com  -w /usr/share/nginx/html/` <br />
+
+Replace --email with your email, -d is your nginx server_name, -w is short for --webroot-path. /usr/share/nginx/ is a common Nginx Web root. 
+
+Edit the /etc/nginx/conf/owncloud.conf and add these lines under server_name: <br />
+
+```
+ssl_certificate      /etc/letsencrypt/live/www.example.com/fullchain.pem;
+ssl_certificate_key  /etc/letsencrypt/live/www.example.com/privkey.pem;
+
+```
+
+Replace www.example.com with your server_name
+
+Restart the nginx: `sudo systemctl restart nginx`
+
+The certificates expires every 90 days. You need to renew ssl certificate after this period. Make a crontab task to automate this process to do it for you monthly.
+
+Install cronie. `sudo pacman -S cronie`. Create a crontab task with `EDITOR=nano crontab -e`. The editor variable is there to specify the editor. By default crontab will use vim. <br />
+
+Add this line and exit: `@monthly certbot certonly --webroot --email <your-email-address> -d www.example.com -w /usr/share/nginx/html` <br />
+
+The command will run at 00:00 on 1st day of every month.
+
+To view their crontabs, users should issue the command: `crontab -l`. Here you can read more about [cronie](https://wiki.archlinux.org/index.php/cron).
+
