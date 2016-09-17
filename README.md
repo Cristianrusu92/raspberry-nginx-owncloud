@@ -143,7 +143,7 @@ Save and exit and add `locale-gen`  <br />
 Clone the git repository by typing `git clone https://github.com/cristiangabor/OwncloudConfig-Raspberry-Arch.git`. Then enter the directory cloned: `cd ~/OwncloudConfig-Raspberry-Arch/`
 
 
-I worte a bash script that autmoates the installation and configuration of owncloud/nginx for your raspberry pi. Access the nginx.sh script from your git cloned repository and change the permissions in oreder to be able to execute it. To do that type:
+I wrote a bash script that autmoates the installation and configuration of owncloud/nginx for your raspberry pi. Access the nginx.sh script from your git cloned repository and change the permissions in oreder to be able to execute it. To do that type:
 
 `sudo chmod 755 nginx.sh`
 
@@ -174,9 +174,30 @@ After the script is runned you need to modify the `server_name` from /etc/nginx/
 
 The final step is to set a port forwarding on your router to make the owncloud accessible on the 443 external port. This is a really important step. Skipping this step can make the server owncloud not to work, so pay atention! 
 
-Enter the router configuration panel by accessing his own ip: Usualy the ip is writen on the back of the router. Like `192.168.0.1` . Access the advacend section and there you will see a section: Port Forwarding. This [tutorial](https://pimylifeup.com/raspberry-pi-port-forwarding/) is really useful to see how it's done. The internal port needs to be `443` and also the external port needs to be `443`. You may have a problem after setting this with http redirect. You only need to enter on the browser link section `https://followed-by-your-onwcloud.adress.com'. After this the browser will remember your adress, so there is no need to type it again.
+Enter the router configuration panel by accessing his own ip: Usualy the ip is writen on the back of the router. Like `192.168.0.1` . Access the advacend section and there you will see a section: Port Forwarding. This [tutorial](https://pimylifeup.com/raspberry-pi-port-forwarding/) is really useful to see how it's done. The internal port needs to be `443` and also the external port needs to be `443`. You may have a problem after setting this with http redirect. You only need to enter on the browser link section `https://followed-by-your-onwcloud.adress.com`. After this the browser will remember your adress, so there is no need to type it again.
 
 That's it with this step. 
 
 
+#### 11.Add external hard drive to your owncloud server
 
+To expand the capabilities of your owncloud server you can add a external hardrive. For this you need first identificate the unique id of your 
+hard drive. 
+
+To see your hard drive id: `ls -l /dev/disk/by-uuid' . You will see a short key for fat32 partions like: ` 503A-ABB5`. Copy the key. 
+
+Get the id of `http` user. Remember that we gaved the ownership of '/usr/share/webapps/owncloud/`(where the owncloud files are) to `http` 
+user. 
+`id -g http` <br />
+`id -u http` <br />
+
+Add this line at the end of the /etc/fstab file. Remember to substitue the `UUID=`,`uid` and `gid` with your hard drive id, http user id 
+and http group id.
+
+`UUID=503A-ABB5 /media/owncloud vfat nofail,x-systemd.device-timeout=1,uid=33,gid=33,umask=0027,dmask=0027  0 0`
+
+Restart the raspberry. `sudo reboot`
+
+Activate the owncloud external storage in the application menu. Add your hard drive to the Local directory and specify the path where is 
+mounted `/media/owncloud`. Here is a useful [video](https://www.youtube.com/watch?v=uezzFDRnoPY).
+   
