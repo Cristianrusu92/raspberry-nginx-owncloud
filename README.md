@@ -238,3 +238,26 @@ The command will run at 00:00 on 1st day of every month.
 
 To view their crontabs, users should issue the command: `crontab -l`. Here you can read more about [cronie](https://wiki.archlinux.org/index.php/cron).
 
+
+#### 13. Make a VPN & SSH connection
+
+Connecting via WAN with SSH you need to make a virtual private network. A VPN is a private network that uses a public network (usually the Internet) to connect remote sites or users together. The VPN uses "virtual" connections routed through the Internet from the business's private network to the remote site or employee. By using a VPN, businesses ensure security -- anyone intercepting the encrypted data can't read it.
+
+Find out your public ip: `curl http://icanhazip.com` . This ip is set by your network provider. You are able to connect to it with ssh but first you need to open the 22 port. This port is for your ssh communication. Open it in your router by connecting to it and for: <br />
+
+1.ip - your raspberry ip (ex:192.168.0.102)
+2.internal port - your internal port (22)
+3.external(service) port - your external port (22) <br / >
+
+Right now you will have 2 ports open for your raspberry: <br />
+
+1.The 443 port for your owncloud
+2.The 22 port for your ssh
+
+
+Access it outside the network by: `ssh raspberry_user_name@public_ip`
+
+You can access it also by your dns name. If you have a DNS set (some provider offer the possibilty to link the DNS by your public ip automaticaly) you can replace it: `ssh raspberry_user_name@DNS_name`
+
+If you don't have a DNS set. Most probably you will find in your router settings panel how to set one. 
+
