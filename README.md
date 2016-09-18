@@ -245,14 +245,14 @@ Connecting via WAN with SSH you need to make a virtual private network. A VPN is
 
 Find out your public ip: `curl http://icanhazip.com` . This ip is set by your network provider. You are able to connect to it with ssh but first you need to open the 22 port. This port is for your ssh communication. Open it in your router by connecting to it and for: <br />
 
-1)ip - your raspberry ip (ex:192.168.0.102)
-2)internal port - your internal port (22)
-3)external(service) port - your external port (22) <br / >
+1. ip - your raspberry ip (ex:192.168.0.102)
+2. internal port - your internal port (22)
+3. external(service) port - your external port (22) <br / >
 
 Right now you will have 2 ports open for your raspberry: <br />
 
-1)The 443 port for your owncloud
-2)The 22 port for your ssh
+1. The 443 port for your owncloud
+2. The 22 port for your ssh
 
 
 Access it outside the network by: `ssh raspberry_user_name@public_ip`
