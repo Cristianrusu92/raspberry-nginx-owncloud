@@ -1,3 +1,4 @@
+
 # OwncloudConfig-Raspberry-Arch <br />
 
 These are a set of steps that I have followed in order to set a Owncloud &amp; nginx server on my Raspberry PI model 3. The system used is the 
@@ -30,7 +31,7 @@ You  install it on your Arch system. After the installation, just execute `java 
 your script is downloaded and you will see a script running in your command line. After a few seconds the script prompts you with the ip. 
 Here is a example view of the script. <br />
 
-```
+```bash
 PI-OI is finding your Pi ...
 +-----------------------------------------------------------------------------------------+
 | Address            | Host response                          | Could be a Pi    | Time   |
