@@ -1,25 +1,34 @@
-# OwncloudConfig-Raspberry-Arch
-This are a set of steps that I have followed in order to set a owncloud&amp;nginx server on my Archlinux&amp;RaspberryPI3
+# OwncloudConfig-Raspberry-Arch <br />
 
-
-##                                Raspberry Pi                       Configuration Manual    
-
-
+These are a set of steps that I have followed in order to set a Owncloud &amp; nginx server on my Raspberry PI model 3. The system used is the 
+arm ArchLinux
+ 
+## Raspberry Pi  Configuration Manual  <br />
 
 #### 1.Set up the sd card for Raspberry PI
-In order to have a working archlinux arm on the raspberry.You have to follow up the instructions from the official [Arch Linux Arm site](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3). *Remeber that this site presumes you have already a working Linux system, so all the commands are in the linux shell.
-There is not a .img in order to make a bootable card in rufus or other similar programs* After you inserted the sd card you have to umount it first `sudo umount /dev/sdb1 /dev/sdb2`  
+In order to have a working Archlinux arm on the raspberry, you have to follow up the instructions from the official [Arch Linux Arm 
+site](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3). *Remember that this site assumes you already have a working Linux 
+system. The ArchLinux community is not releasing anymore a .img in order to make a bootable card in rufus or other similar programs*. After 
+the sd card is inserted in your computer you need to umount it first. <br />
 
+`sudo umount /dev/sdb1 /dev/sdb2`  <br />
 
 #### 2.Connect the Raspberry 
-Power up the device by connecting it to a 5V 2.5A power supply. I found that it works well with a 5V cellphone charger to. And finally you can connect the internet cable to the router LAN port. 
+Power up the device by connecting it to a 5V 2.5A power supply. I found that it works well with a 5V cellphone charger.Finally you can connect 
+the internet cable to the router LAN port. <br />
 
-
-#### 3.Enstablish a SSH connection 
-To make it easy the OpenSHH is active by default in ArchLinux. So you only need to find out the ip of your raspberry pi to be able to connect to it. 
-A easy way to find out the ip adrees is to use a script that automatically tells you the device ip. The is script in this guy 
-[repo](http://github.com/thoqbk/pi-oi) so you can download it. You have to install java dev tool in order to execute it from the command line. By typing ` sudo pacman -S jdk7-openjdk ` you can install it on your Arch system. After the instalation, just execute `java -jar pi-oi.jar` where your script is downloaded and you will see a script running in your command line. After a few seconds the script prompts you with the ip. 
-Here is a example view of the script 
+#### 3.Establish a SSH connection <br />
+ 
+The Openssh is active by default in ArchLinux, so you only need to find out the ip of your raspberry pi in order to connect to it. 
+A easy way to find out the ip adress is to use a script that automatically tells you the device ip. The script in this guy 
+[repo](http://github.com/thoqbk/pi-oi) makes searching the ip very easy.You have to install java dev tool in order to execute it from the 
+command line.<br />
+ 
+` sudo pacman -S jdk7-openjdk ` <br />
+ 
+You  install it on your Arch system. After the installation, just execute `java -jar pi-oi.jar` where 
+your script is downloaded and you will see a script running in your command line. After a few seconds the script prompts you with the ip. 
+Here is a example view of the script. <br />
 
 ```
 PI-OI is finding your Pi ...
