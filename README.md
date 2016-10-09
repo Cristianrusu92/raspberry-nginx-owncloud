@@ -271,3 +271,6 @@ You can access it also by your dns name. If you have a DNS set (some provider of
 
 If you don't have a DNS set. Most probably you will find in your router settings panel how to set one. 
 
+#### Shut down rapsberry pi
+
+sudo shutdown -h now
